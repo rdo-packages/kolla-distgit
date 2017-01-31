@@ -1,3 +1,5 @@
-# UUID                                  	Group Name
-#
-de4acf6ed80eebf2edfa9d2ab42aa5b6d0b0b495	openstack/kolla-distgit-ptl
+# UUID          Group Name
+False 	Non-Interactive Users
+533477374f7f9cf722ebe6716c862d43f13a7144       	openstack/kolla-distgit-core
+de4acf6ed80eebf2edfa9d2ab42aa5b6d0b0b495        	openstack/kolla-distgit-ptl
+global:Registered-Users		Registered Users
