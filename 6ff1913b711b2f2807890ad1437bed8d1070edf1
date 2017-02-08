@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "baada198_93304458",
+        "filename": "openstack-kolla.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 147
+      },
+      "writtenOn": "2017-02-08T21:55:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baada198_90175aa3",
+      "revId": "6ff1913b711b2f2807890ad1437bed8d1070edf1",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baada198_b00c5e96",
         "filename": "openstack-kolla.spec",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2017-02-08T16:21:31Z",
       "side": 1,
       "message": "Same here, RPM will complain that %{_sysconfdir}/kolla is not owned by any RPM.",
+      "revId": "6ff1913b711b2f2807890ad1437bed8d1070edf1",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baada198_b3354848",
+        "filename": "openstack-kolla.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 147
+      },
+      "writtenOn": "2017-02-08T21:55:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baada198_b00c5e96",
       "revId": "6ff1913b711b2f2807890ad1437bed8d1070edf1",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
