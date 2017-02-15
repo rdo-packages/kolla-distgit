@@ -12,7 +12,7 @@ BuildArch:  noarch
 BuildRequires:  python-setuptools
 BuildRequires:  python2-devel
 BuildRequires:  python-pbr
-BuildRequires:  python2-oslo-config
+BuildRequires:  python-oslo-config
 
 Requires:   python-setuptools
 Requires:   python-gitdb
@@ -20,7 +20,8 @@ Requires:   GitPython
 Requires:   python-jinja2
 Requires:   python-docker-py
 Requires:   python-six
-Requires:   python2-oslo-config
+Requires:   python-oslo-config >= 2:3.14.0
+Requires:   python-oslo-utils >= 3.18.0
 Requires:   python-crypto
 Requires:   python-netaddr
 
