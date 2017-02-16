@@ -6,7 +6,7 @@ Summary:    Build OpenStack container images
 
 License:    ASL 2.0
 URL:        http://pypi.python.org/pypi/kolla
-Source0:    http://tarballs.openstack.org/kolla/kolla-%{version}.tar.gz
+Source0:    https://tarballs.openstack.org/kolla/kolla-%{upstream_version}.tar.gz
 
 BuildArch:  noarch
 BuildRequires:  python-setuptools
