@@ -1,12 +1,17 @@
+%global milestone .0rc1
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 Name:       openstack-kolla
-Version:    XXX
-Release:    XXX
+Version:    4.0.0
+Release:    0.1%{?milestone}%{?dist}
 Summary:    Build OpenStack container images
 
 License:    ASL 2.0
 URL:        http://pypi.python.org/pypi/kolla
 Source0:    https://tarballs.openstack.org/kolla/kolla-%{upstream_version}.tar.gz
+
+#
+# patches_base=4.0.0.0rc1
+#
 
 BuildArch:  noarch
 BuildRequires:  python-setuptools
@@ -65,3 +70,6 @@ rm -fr %{buildroot}%{_datadir}/kolla/etc_examples
 %{_sysconfdir}/kolla
 
 %changelog
+* Fri Feb 17 2017 Alfredo Moralejo <amoralej@redhat.com> 4.0.0-0.1.0rc1
+- Update to 4.0.0.0rc1
+
