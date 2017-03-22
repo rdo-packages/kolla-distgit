@@ -13,6 +13,7 @@ BuildRequires:  python-setuptools
 BuildRequires:  python2-devel
 BuildRequires:  python-pbr
 BuildRequires:  python-oslo-config
+BuildRequires:  crudini
 
 Requires:   python-setuptools
 Requires:   python-gitdb
@@ -52,6 +53,7 @@ rm -fr %{buildroot}%{python2_sitelib}/kolla/tests
 rm -fr %{buildroot}%{_datadir}/kolla/tools
 
 install -d -m 755 %{buildroot}%{_sysconfdir}/kolla
+crudini --set %{buildroot}%{_datadir}/kolla/etc_examples/kolla/kolla-build.conf DEFAULT tag %{version}-%{release}
 cp -v %{buildroot}%{_datadir}/kolla/etc_examples/kolla/kolla-build.conf %{buildroot}%{_sysconfdir}/kolla
 rm -fr %{buildroot}%{_datadir}/kolla/etc_examples
 
