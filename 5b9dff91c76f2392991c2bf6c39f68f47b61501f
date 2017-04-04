@@ -16,6 +16,24 @@
       "revId": "5b9dff91c76f2392991c2bf6c39f68f47b61501f",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa98f980_23f2d29a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2017-04-04T12:50:40Z",
+      "side": 1,
+      "message": "ignore, Release here includes Kolla upstream hash, need more thinking",
+      "parentUuid": "fa98f980_c303c671",
+      "revId": "5b9dff91c76f2392991c2bf6c39f68f47b61501f",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
