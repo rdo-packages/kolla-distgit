@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa98f980_c303c671",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2017-04-04T12:48:15Z",
+      "side": 1,
+      "message": "When we have the containers build in the RDO promotion pipeline, we can include short hash in the release here.",
+      "revId": "5b9dff91c76f2392991c2bf6c39f68f47b61501f",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
