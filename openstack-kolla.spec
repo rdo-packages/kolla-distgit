@@ -1,6 +1,6 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 Name:       openstack-kolla
-Version:    4.0.0
+Version:    4.0.1
 Release:    1%{?dist}
 Summary:    Build OpenStack container images
 
@@ -66,6 +66,9 @@ rm -fr %{buildroot}%{_datadir}/kolla/etc_examples
 %{_sysconfdir}/kolla
 
 %changelog
+* Thu Apr 20 2017 Alfredo Moralejo <amoralej@redhat.com> 4.0.1-1
+- Update to 4.0.1
+
 * Tue Mar 14 2017 Alfredo Moralejo <amoralej@redhat.com> 4.0.0-1
 - Update to 4.0.0
 
