@@ -19,7 +19,7 @@ Requires:   python-setuptools
 Requires:   python-gitdb
 Requires:   GitPython
 Requires:   python-jinja2
-Requires:   python-docker-py
+Requires:   python-docker >= 2.0.0
 Requires:   python-six
 Requires:   python-oslo-config >= 2:3.14.0
 Requires:   python-oslo-utils >= 3.18.0
