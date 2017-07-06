@@ -8,6 +8,9 @@ License:    ASL 2.0
 URL:        http://pypi.python.org/pypi/kolla
 Source0:    https://tarballs.openstack.org/kolla/kolla-%{upstream_version}.tar.gz
 
+# Test https://review.openstack.org/#/c/479881/ to fix https://launchpad.net/bugs/1694302
+Patch0001: 0001-PATCH-Fix-incorrect-parameter-in-create_key.patch
+
 BuildArch:  noarch
 BuildRequires:  python-setuptools
 BuildRequires:  python2-devel

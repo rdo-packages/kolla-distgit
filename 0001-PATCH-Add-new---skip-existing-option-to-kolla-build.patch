@@ -1,0 +1,150 @@
+From 78bbd8fd0d54c8203ced7d81c32bdd421849ceee Mon Sep 17 00:00:00 2001
+From: =?utf8?q?Martin=20Andr=C3=A9?= <m.andre@redhat.com>
+Date: Mon, 3 Jul 2017 18:02:35 +0200
+Subject: [PATCH] Add new --skip-existing option to kolla-build
+
+This new option allows to skip images that are already present in the
+docker cache.
+
+Change-Id: I202c70864f8aa86abd882240beb7f6525963e625
+Closes-Bug: #1694302
+---
+ kolla/common/config.py                             |  2 ++
+ kolla/image/build.py                               | 23 ++++++++++++++++------
+ kolla/tests/test_build.py                          |  6 +++++-
+ ...kolla_build_skip_existing-92aebdd858a0bfa5.yaml |  4 ++++
+ 4 files changed, 28 insertions(+), 7 deletions(-)
+ create mode 100644 releasenotes/notes/kolla_build_skip_existing-92aebdd858a0bfa5.yaml
+
+diff --git a/kolla/common/config.py b/kolla/common/config.py
+index 2eb8960..4c22791 100755
+--- a/kolla/common/config.py
++++ b/kolla/common/config.py
+@@ -189,6 +189,8 @@ _CLI_OPTS = [
+                 help='Turn on debugging log level'),
+     cfg.BoolOpt('skip-parents', default=False,
+                 help='Do not rebuild parents of matched images'),
++    cfg.BoolOpt('skip-existing', default=False,
++                help='Do not rebuild images present in the docker cache'),
+     cfg.DictOpt('build-args',
+                 help='Set docker build time variables'),
+     cfg.BoolOpt('keep', default=False,
+diff --git a/kolla/image/build.py b/kolla/image/build.py
+index bbcb538..1c0c32f 100755
+--- a/kolla/image/build.py
++++ b/kolla/image/build.py
+@@ -139,7 +139,7 @@ class DockerTask(task.Task):
+ class Image(object):
+     def __init__(self, name, canonical_name, path, parent_name='',
+                  status=STATUS_UNPROCESSED, parent=None,
+-                 source=None, logger=None):
++                 source=None, logger=None, docker_client=None):
+         self.name = name
+         self.canonical_name = canonical_name
+         self.path = path
+@@ -153,6 +153,7 @@ class Image(object):
+         self.children = []
+         self.plugins = []
+         self.additions = []
++        self.dc = docker_client
+ 
+     def copy(self):
+         c = Image(self.name, self.canonical_name, self.path,
+@@ -168,6 +169,9 @@ class Image(object):
+             c.additions = list(self.additions)
+         return c
+ 
++    def in_docker_cache(self):
++        return len(self.dc.images(name=self.canonical_name, quiet=True)) == 1
++
+     def __repr__(self):
+         return ("Image(%s, %s, %s, parent_name=%s,"
+                 " status=%s, parent=%s, source=%s)") % (
+@@ -397,7 +401,7 @@ class BuildTask(DockerTask):
+         self.logger.debug('Processing')
+ 
+         if image.status == STATUS_SKIPPED:
+-            self.logger.info('Skipping %s (--skip-parents)' % image.name)
++            self.logger.info('Skipping %s' % image.name)
+             return
+ 
+         if image.status == STATUS_UNMATCHED:
+@@ -573,6 +577,9 @@ class KollaWorker(object):
+         self.image_statuses_skipped = dict()
+         self.maintainer = conf.maintainer
+ 
++        docker_kwargs = docker.utils.kwargs_from_env()
++        self.dc = docker.APIClient(version='auto', **docker_kwargs)
++
+     def _get_images_dir(self):
+         possible_paths = (
+             PROJECT_ROOT,
+@@ -809,6 +816,9 @@ class KollaWorker(object):
+                         image = image.parent
+                         if self.conf.skip_parents:
+                             image.status = STATUS_SKIPPED
++                        elif (self.conf.skip_existing and
++                              image.in_docker_cache()):
++                            image.status = STATUS_SKIPPED
+                         else:
+                             image.status = STATUS_MATCHED
+                         LOG.debug('Image %s matched regex', image.name)
+@@ -866,9 +876,9 @@ class KollaWorker(object):
+                 })
+ 
+         if self.image_statuses_skipped:
+-            LOG.debug("=====================================")
+-            LOG.debug("Images skipped due to --skip-parents")
+-            LOG.debug("=====================================")
++            LOG.debug("================================")
++            LOG.debug("Images skipped due build options")
++            LOG.debug("================================")
+             for name in self.image_statuses_skipped.keys():
+                 LOG.debug(name)
+                 results['skipped'].append({
+@@ -936,7 +946,8 @@ class KollaWorker(object):
+             del match
+             image = Image(image_name, canonical_name, path,
+                           parent_name=parent_name,
+-                          logger=make_a_logger(self.conf, image_name))
++                          logger=make_a_logger(self.conf, image_name),
++                          docker_client=self.dc)
+ 
+             if self.install_type == 'source':
+                 # NOTE(jeffrey4l): register the opts if the section didn't
+diff --git a/kolla/tests/test_build.py b/kolla/tests/test_build.py
+index c1d17cf..8ace062 100644
+--- a/kolla/tests/test_build.py
++++ b/kolla/tests/test_build.py
+@@ -227,6 +227,9 @@ class KollaWorkerTest(base.TestCase):
+ 
+         self.images = [image, image_child, image_unmatched,
+                        image_error, image_built]
++        patcher = mock.patch('docker.APIClient')
++        self.addCleanup(patcher.stop)
++        self.mock_client = patcher.start()
+ 
+     def test_supported_base_type(self):
+         rh_base = ['centos', 'oraclelinux', 'rhel']
+@@ -409,7 +412,8 @@ class MainTest(base.TestCase):
+         self.assertEqual(1, result)
+ 
+     @mock.patch('sys.argv')
+-    def test_run_build(self, mock_sys):
++    @mock.patch('docker.APIClient')
++    def test_run_build(self, mock_client, mock_sys):
+         result = build.run_build()
+         self.assertTrue(result)
+ 
+diff --git a/releasenotes/notes/kolla_build_skip_existing-92aebdd858a0bfa5.yaml b/releasenotes/notes/kolla_build_skip_existing-92aebdd858a0bfa5.yaml
+new file mode 100644
+index 0000000..0a1e562
+--- /dev/null
++++ b/releasenotes/notes/kolla_build_skip_existing-92aebdd858a0bfa5.yaml
+@@ -0,0 +1,4 @@
++---
++features:
++  - Add new `--skip-existing` kolla-build option that skips images present in
++    the docker cache.
+-- 
+1.9.1
