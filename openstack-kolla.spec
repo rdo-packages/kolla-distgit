@@ -15,7 +15,6 @@ BuildRequires:  python-pbr
 BuildRequires:  python-oslo-config
 BuildRequires:  crudini
 
-Requires:   python-setuptools
 Requires:   python-gitdb
 Requires:   GitPython
 Requires:   python-jinja2
