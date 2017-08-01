@@ -1,0 +1,10 @@
+Code-Review+1: Jon Schlueter <jschluet@redhat.com>
+Code-Review+1: Jason Joyce <jjoyce@redhat.com>
+Code-Review+2: Steve Baker <sbaker@redhat.com>
+Workflow+1: Steve Baker <sbaker@redhat.com>
+Verified+2: Jenkins CI <admin@rpmfactory.beta.rdoproject.org>
+Submitted-by: Jenkins CI <admin@rpmfactory.beta.rdoproject.org>
+Submitted-at: Tue, 01 Aug 2017 21:49:44 +0000
+Reviewed-on: https://review.rdoproject.org/r/7982
+Project: openstack/kolla-distgit
+Branch: refs/heads/rpm-master
