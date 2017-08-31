@@ -17,12 +17,12 @@ BuildRequires:  crudini
 
 Requires:   python-gitdb
 Requires:   GitPython
-Requires:   python-jinja2
+Requires:   python-jinja2 >= 2.8
 Requires:   python-docker >= 2.0.0
-Requires:   python-six
-Requires:   python-oslo-config >= 2:3.14.0
-Requires:   python-oslo-utils >= 3.18.0
-Requires:   python-crypto
+Requires:   python-six >= 1.9.0
+Requires:   python-oslo-config >= 2:4.0.0
+Requires:   python-oslo-utils >= 3.20.0
+Requires:   python-cryptography >= 1.6
 Requires:   python-netaddr
 
 %description
