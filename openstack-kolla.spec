@@ -1,12 +1,18 @@
-%{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+%{!?upstream_version: %global upstream_version %{commit}}
+%global upstream_name kolla
+%global commit bbeda30a9df9021bf463b90d864e39cd6d7870df
+%global shortcommit %(c=%{commit}; echo ${c:0:7})
+# DO NOT REMOVE ALPHATAG
+%global alphatag .%{shortcommit}git
+
 Name:       openstack-kolla
-Version:    XXX
-Release:    XXX
+Version:    5.0.0
+Release:    0.1%{?alphatag}%{?dist}
 Summary:    Build OpenStack container images
 
 License:    ASL 2.0
 URL:        http://pypi.python.org/pypi/kolla
-Source0:    https://tarballs.openstack.org/kolla/kolla-%{upstream_version}.tar.gz
+Source0:    https://github.com/openstack/%{upstream_name}/archive/%{commit}.tar.gz#/%{upstream_name}-%{shortcommit}.tar.gz
 
 BuildArch:  noarch
 BuildRequires:  python-setuptools
@@ -66,3 +72,6 @@ rm -fr %{buildroot}%{_datadir}/kolla/etc_examples
 %{_sysconfdir}/kolla
 
 %changelog
+* Thu Aug 31 2017 Haïkel Guémar <hguemar@fedoraproject.org> - 5.0.0-0.1.bbeda30agit
+- Pike update 5.0.0 pre-release (bbeda30a9df9021bf463b90d864e39cd6d7870df)
+
