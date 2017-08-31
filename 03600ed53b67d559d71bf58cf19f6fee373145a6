@@ -46,6 +46,30 @@
       "revId": "03600ed53b67d559d71bf58cf19f6fee373145a6",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a890539_a2da1a76",
+        "filename": "openstack-kolla.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2017-08-31T20:38:20Z",
+      "side": 1,
+      "message": "last pike passed-ci",
+      "parentUuid": "5a890539_42f416f2",
+      "range": {
+        "startLine": 3,
+        "startChar": 15,
+        "endLine": 3,
+        "endChar": 55
+      },
+      "revId": "03600ed53b67d559d71bf58cf19f6fee373145a6",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
