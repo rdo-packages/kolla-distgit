@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a890539_42f416f2",
+        "filename": "openstack-kolla.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2017-08-31T20:37:16Z",
+      "side": 1,
+      "message": "Where are you getting this hash? 5.0.0b3 gives me e7a8f3f5bb3e7357e42dfb5cf550fc5f97bbc11b",
+      "range": {
+        "startLine": 3,
+        "startChar": 15,
+        "endLine": 3,
+        "endChar": 55
+      },
+      "revId": "03600ed53b67d559d71bf58cf19f6fee373145a6",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
