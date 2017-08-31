@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a890539_62d03251",
+        "filename": "openstack-kolla.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2017-08-31T20:43:00Z",
+      "side": 1,
+      "message": "need autosetup -S git with github snap tarball\n\ncbs scratch fails with:\nException: Versioning for this project requires either an sdist tarball, or access to an upstream git repository.",
+      "revId": "f38dcc10f2ed8c790c27252e7b36572a91514470",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
