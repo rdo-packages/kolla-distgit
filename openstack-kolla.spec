@@ -1,4 +1,8 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+
+%global common_desc \
+Templates and tools from the Kolla project to build OpenStack container images.
+
 Name:       openstack-kolla
 Version:    XXX
 Release:    XXX
@@ -26,7 +30,7 @@ Requires:   python-cryptography >= 1.6
 Requires:   python-netaddr
 
 %description
-Templates and tools from the Kolla project to build OpenStack container images.
+%{common_desc}
 
 %prep
 %setup -q -n kolla-%{upstream_version}
