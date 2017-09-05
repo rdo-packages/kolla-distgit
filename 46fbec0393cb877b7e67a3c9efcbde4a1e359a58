@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a890539_79c46592",
+        "filename": "openstack-kolla.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2017-09-05T13:48:05Z",
+      "side": 1,
+      "message": "We only have one instance of the description, so I think in this case moving it to a %global doesn\u0027t help.",
+      "revId": "46fbec0393cb877b7e67a3c9efcbde4a1e359a58",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
