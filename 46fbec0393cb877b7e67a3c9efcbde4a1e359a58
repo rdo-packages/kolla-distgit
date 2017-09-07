@@ -16,6 +16,24 @@
       "revId": "46fbec0393cb877b7e67a3c9efcbde4a1e359a58",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a890539_28452470",
+        "filename": "openstack-kolla.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 127
+      },
+      "writtenOn": "2017-09-07T11:37:41Z",
+      "side": 1,
+      "message": "it will make sense once python3 support is added in, so the work done here is reasonable to merge in my opinion.",
+      "parentUuid": "5a890539_79c46592",
+      "revId": "46fbec0393cb877b7e67a3c9efcbde4a1e359a58",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
