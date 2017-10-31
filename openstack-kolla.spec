@@ -12,10 +12,7 @@ License:    ASL 2.0
 URL:        http://pypi.python.org/pypi/kolla
 Source0:    https://tarballs.openstack.org/kolla/kolla-%{upstream_version}.tar.gz
 
-Patch0001:  0001-Switch-to-python-cffi-for-rpm-based-distros.patch
-
 BuildArch:  noarch
-BuildRequires:  git
 BuildRequires:  python-setuptools
 BuildRequires:  python2-devel
 BuildRequires:  python-pbr
@@ -36,7 +33,7 @@ Requires:   python-netaddr
 %{common_desc}
 
 %prep
-%autosetup -n kolla-%{upstream_version} -S git
+%setup -q -n kolla-%{upstream_version}
 
 %build
 PYTHONPATH=. oslo-config-generator --config-file=etc/oslo-config-generator/kolla-build.conf
