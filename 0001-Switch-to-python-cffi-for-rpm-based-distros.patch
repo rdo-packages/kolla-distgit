@@ -1,0 +1,42 @@
+From 8d024ff4000aaffd7841ef76f010e211cb457f79 Mon Sep 17 00:00:00 2001
+From: Alfredo Moralejo <amoralej@redhat.com>
+Date: Tue, 31 Oct 2017 13:06:31 +0100
+Subject: [PATCH] Switch to python-cffi for rpm based distros
+
+Note that latest version of python-cffi is provided
+from CentOS base and is python-cffi instead of python2-cffi.
+
+According to CentOS/RDO packaging rules, all python2-XXX
+packages has a provides on python-XXX, so when installing
+it, python-XXX should always be used as it will install the
+right package.
+
+Change-Id: Ie30901c64993a6031278812e5072046a50371b3d
+Closes-Bug: #1728915
+---
+ docker/openstack-base/Dockerfile.j2 | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/docker/openstack-base/Dockerfile.j2 b/docker/openstack-base/Dockerfile.j2
+index 846c8fc6..c455dad9 100644
+--- a/docker/openstack-base/Dockerfile.j2
++++ b/docker/openstack-base/Dockerfile.j2
+@@ -40,7 +40,6 @@ LABEL maintainer="{{ maintainer }}" name="{{ image_name }}" build-date="{{ build
+             'MySQL-python',
+             'pyOpenSSL',
+             'pyparsing',
+-            'python2-cffi',
+             'python-crypto',
+             'python2-cryptography',
+             'python2-debtcollector',
+@@ -76,6 +75,7 @@ LABEL maintainer="{{ maintainer }}" name="{{ image_name }}" build-date="{{ build
+             'python-beaker',
+             'python-cachetools',
+             'python-ceilometerclient',
++            'python-cffi',
+             'python-cliff',
+             'python-cloudkittyclient',
+             'python-cmd2',
+-- 
+2.13.5
+
