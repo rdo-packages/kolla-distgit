@@ -1,7 +1,7 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:       openstack-kolla
-Version:    5.0.0
+Version:    5.0.1
 Release:    1%{?dist}
 Summary:    Build OpenStack container images
 
@@ -68,6 +68,9 @@ rm -fr %{buildroot}%{_datadir}/kolla/etc_examples
 %{_sysconfdir}/kolla
 
 %changelog
+* Thu Dec 21 2017 RDO <dev@lists.rdoproject.org> 5.0.1-1
+- Update to 5.0.1
+
 * Mon Sep 18 2017 Alfredo Moralejo <amoralej@redhat.com> 5.0.0-1
 - Update to 5.0.0
 
