@@ -13,21 +13,22 @@ URL:        http://pypi.python.org/pypi/kolla
 Source0:    https://tarballs.openstack.org/kolla/kolla-%{upstream_version}.tar.gz
 
 BuildArch:  noarch
-BuildRequires:  python-setuptools
+BuildRequires:  python2-setuptools
 BuildRequires:  python2-devel
-BuildRequires:  python-pbr
-BuildRequires:  python-oslo-config
+BuildRequires:  python2-pbr
+BuildRequires:  python2-oslo-config
 BuildRequires:  crudini
 
 Requires:   python-gitdb
+Requires:   python2-pbr >= 2.0.0
 Requires:   GitPython
-Requires:   python-jinja2 >= 2.8
-Requires:   python-docker >= 2.0.0
-Requires:   python-six >= 1.9.0
-Requires:   python-oslo-config >= 2:4.0.0
-Requires:   python-oslo-utils >= 3.20.0
-Requires:   python-cryptography >= 1.6
-Requires:   python-netaddr
+Requires:   python2-jinja2 >= 2.8
+Requires:   python2-docker >= 2.4.2
+Requires:   python2-six >= 1.10.0
+Requires:   python2-oslo-config >= 2:5.1.0
+Requires:   python2-oslo-utils >= 3.33.0
+Requires:   python2-cryptography >= 1.7.2
+Requires:   python2-netaddr
 
 %description
 %{common_desc}
