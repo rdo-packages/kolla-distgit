@@ -12,6 +12,9 @@ License:    ASL 2.0
 URL:        http://pypi.python.org/pypi/kolla
 Source0:    https://tarballs.openstack.org/kolla/kolla-%{upstream_version}.tar.gz
 
+# FIXME(ykarel) Remove once https://review.openstack.org/#/c/563850/ is merged
+Patch0001:  0001-Clean-python-requirements-from-base-image.patch
+
 BuildArch:  noarch
 BuildRequires:  python2-setuptools
 BuildRequires:  python2-devel
@@ -34,7 +37,7 @@ Requires:   python2-netaddr
 %{common_desc}
 
 %prep
-%setup -q -n kolla-%{upstream_version}
+%autosetup -n kolla-%{upstream_version} -S git
 
 %build
 PYTHONPATH=. oslo-config-generator --config-file=etc/oslo-config-generator/kolla-build.conf
