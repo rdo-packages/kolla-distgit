@@ -1,0 +1,50 @@
+From deb4790d4e12fc17d9d79e0a140e7f1bd1706058 Mon Sep 17 00:00:00 2001
+From: Alfredo Moralejo <amoralej@redhat.com>
+Date: Tue, 24 Apr 2018 09:50:46 +0200
+Subject: [PATCH] Clean python requirements from base image
+
+openstack-base image includes a list of dependencies to be
+installed in the image. However some of the packages in this
+list seems not to be used by any or very few OpenStack services
+according to the info found in codesearch.
+
+This patch removes some python packages from this list as we
+are in the process of cleaning dependencies in RDO.
+
+Change-Id: I209b16cfd7dff6ce20bc2417a6079fb8597f6774
+Closes-Bug: #1766493
+---
+ docker/openstack-base/Dockerfile.j2 | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/docker/openstack-base/Dockerfile.j2 b/docker/openstack-base/Dockerfile.j2
+index b8b09ef8..436d7612 100644
+--- a/docker/openstack-base/Dockerfile.j2
++++ b/docker/openstack-base/Dockerfile.j2
+@@ -64,7 +64,6 @@ LABEL maintainer="{{ maintainer }}" name="{{ image_name }}" build-date="{{ build
+             'python2-oslo-utils',
+             'python2-pika',
+             'python2-pika_pool',
+-            'python2-positional',
+             'python2-pyasn1',
+             'python2-PyMySQL',
+             'python2-sysv_ipc',
+@@ -135,7 +134,6 @@ LABEL maintainer="{{ maintainer }}" name="{{ image_name }}" build-date="{{ build
+             'python-prettytable',
+             'python-psycopg2',
+             'python-pycparser',
+-            'python-pymemcache',
+             'python-PyMySQL',
+             'python-redis',
+             'python-repoze-lru',
+@@ -341,7 +339,6 @@ RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py \
+         'pbr',
+         'pika',
+         'pika-pool',
+-        'positional',
+         'prettytable',
+         'pycadf',
+         'pyinotify',
+-- 
+2.13.6
+
