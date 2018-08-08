@@ -1,20 +1,17 @@
-%global milestone .0rc2
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 %global common_desc \
 Templates and tools from the Kolla project to build OpenStack container images.
 
 Name:       openstack-kolla
-Version:    6.0.0
-Release:    0.2%{?milestone}%{?dist}
+Version:    6.1.0
+Release:    1%{?dist}
 Summary:    Build OpenStack container images
 
 License:    ASL 2.0
 URL:        http://pypi.python.org/pypi/kolla
 Source0:    https://tarballs.openstack.org/kolla/kolla-%{upstream_version}.tar.gz
 
-#
-# patches_base=6.0.0.0rc2
 #
 
 BuildArch:  noarch
@@ -76,6 +73,9 @@ rm -fr %{buildroot}%{_datadir}/kolla/etc_examples
 %{_sysconfdir}/kolla
 
 %changelog
+* Wed Aug 08 2018 RDO <dev@lists.rdoproject.org> 6.1.0-1
+- Update to 6.1.0
+
 * Mon Mar 19 2018 RDO <dev@lists.rdoproject.org> 6.0.0-0.2.0rc1
 - Update to 6.0.0.0rc2
 
