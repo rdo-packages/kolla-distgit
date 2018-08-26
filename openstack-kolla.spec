@@ -27,7 +27,7 @@ Requires:   python2-docker >= 2.4.2
 Requires:   python2-six >= 1.10.0
 Requires:   python2-oslo-config >= 2:5.1.0
 Requires:   python2-oslo-utils >= 3.33.0
-Requires:   python2-cryptography >= 1.7.2
+Requires:   python2-cryptography >= 1.9
 Requires:   python2-netaddr
 
 %description
