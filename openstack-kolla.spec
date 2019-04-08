@@ -1,3 +1,4 @@
+%global milestone .0rc1
 # Macros for py2/py3 compatibility
 %if 0%{?fedora} || 0%{?rhel} > 7
 %global pyver %{python3_pkgversion}
@@ -15,13 +16,17 @@
 Templates and tools from the Kolla project to build OpenStack container images.
 
 Name:       openstack-kolla
-Version:    XXX
-Release:    XXX
+Version:    8.0.0
+Release:    0.1%{?milestone}%{?dist}
 Summary:    Build OpenStack container images
 
 License:    ASL 2.0
 URL:        http://pypi.python.org/pypi/kolla
 Source0:    https://tarballs.openstack.org/kolla/kolla-%{upstream_version}.tar.gz
+
+#
+# patches_base=8.0.0.0rc1
+#
 
 BuildArch:  noarch
 BuildRequires:  python%{pyver}-setuptools
@@ -89,3 +94,6 @@ rm -fr %{buildroot}%{_datadir}/kolla/etc_examples
 %{_sysconfdir}/kolla
 
 %changelog
+* Mon Apr 08 2019 RDO <dev@lists.rdoproject.org> 8.0.0-0.1.0rc1
+- Update to 8.0.0.0rc1
+
