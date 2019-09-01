@@ -94,3 +94,4 @@ rm -fr %{buildroot}%{_datadir}/kolla/etc_examples
 * Thu Mar 01 2018 RDO <dev@lists.rdoproject.org> 6.0.0-0.1.0rc1
 - Update to 6.0.0.0rc1
 
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/kolla/commit/?id=1e2ff199d4d639f45e7c476bb555d12316a6bfe3
