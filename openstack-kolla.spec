@@ -89,3 +89,4 @@ rm -fr %{buildroot}%{_datadir}/kolla/etc_examples
 * Thu Aug 31 2017 Haïkel Guémar <hguemar@fedoraproject.org> - 5.0.0-0.1.bbeda30agit
 - Pike update 5.0.0 pre-release (bbeda30a9df9021bf463b90d864e39cd6d7870df)
 
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/kolla/commit/?id=6149a454b5a37fc9819b553ae2bc5bd29930dd6a
