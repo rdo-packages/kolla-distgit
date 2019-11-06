@@ -9,27 +9,22 @@
 %global pyver_install %py%{pyver}_install
 %global pyver_build %py%{pyver}_build
 # End of macros for py2/py3 compatibility
-%{!?upstream_version: %global upstream_version %{commit}}
-%global commit 98fb7dc8ff2136d658c9a79ed40f6e42e7893662
-%global shortcommit %(c=%{commit}; echo ${c:0:7})
-# DO NOT REMOVE ALPHATAG
-%global alphatag .%{shortcommit}git
+%global milestone .0rc1
+%{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 %global common_desc \
 Templates and tools from the Kolla project to build OpenStack container images.
 
 Name:       openstack-kolla
-Version:    8.0.1
-Release:    1.1%{?milestone}%{?alphatag}%{?dist}
+Version:    9.0.0
+Release:    0.1%{?milestone}%{?dist}
 Summary:    Build OpenStack container images
 
 License:    ASL 2.0
 URL:        http://pypi.python.org/pypi/kolla
-Source0:    https://github.com/openstack/kolla/archive/%{upstream_version}.tar.gz#/kolla-%{shortcommit}.tar.gz
+Source0:    https://tarballs.openstack.org/kolla/kolla-%{upstream_version}.tar.gz
 
-#
-# patches_base=8.0.0.0rc1
-#
+# patches_base=9.0.0.0rc1
 
 BuildArch:  noarch
 BuildRequires:  python%{pyver}-setuptools
@@ -98,6 +93,9 @@ rm -fr %{buildroot}%{_datadir}/kolla/etc_examples
 %{_sysconfdir}/kolla
 
 %changelog
+* Wed Nov 06 2019 RDO <dev@lists.rdoproject.org> 9.0.0-0.1.0rc1
+- Update to 9.0.0.0rc1
+
 * Tue Oct 22 2019 RDO <dev@lists.rdoproject.org> 8.0.1-1.1.98fb7dcgit
 - Update to post 8.0.1 (98fb7dc8ff2136d658c9a79ed40f6e42e7893662)
 
