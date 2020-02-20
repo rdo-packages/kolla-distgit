@@ -88,4 +88,5 @@ rm -fr %{buildroot}%{_datadir}/kolla/etc_examples
 %{_datadir}/kolla
 %{_sysconfdir}/kolla
 
+
 %changelog
