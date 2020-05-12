@@ -1,14 +1,3 @@
-# Macros for py2/py3 compatibility
-%if 0%{?fedora} || 0%{?rhel} > 7
-%global pyver %{python3_pkgversion}
-%else
-%global pyver 2
-%endif
-%global pyver_bin python%{pyver}
-%global pyver_sitelib %python%{pyver}_sitelib
-%global pyver_install %py%{pyver}_install
-%global pyver_build %py%{pyver}_build
-# End of macros for py2/py3 compatibility
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 %global common_desc \
@@ -24,29 +13,18 @@ URL:        http://pypi.python.org/pypi/kolla
 Source0:    https://tarballs.openstack.org/kolla/kolla-%{upstream_version}.tar.gz
 
 BuildArch:  noarch
-BuildRequires:  python%{pyver}-setuptools
-BuildRequires:  python%{pyver}-devel
-BuildRequires:  python%{pyver}-pbr
-BuildRequires:  python%{pyver}-oslo-config
+BuildRequires:  python3-setuptools
+BuildRequires:  python3-devel
+BuildRequires:  python3-pbr
+BuildRequires:  python3-oslo-config
 BuildRequires:  crudini
 
-Requires:   python%{pyver}-pbr >= 2.0.0
-Requires:   python%{pyver}-jinja2 >= 2.8
-Requires:   python%{pyver}-docker >= 2.4.2
-Requires:   python%{pyver}-six >= 1.10.0
-Requires:   python%{pyver}-oslo-config >= 2:5.1.0
-Requires:   python%{pyver}-oslo-utils >= 3.33.0
-Requires:   python%{pyver}-cryptography >= 1.9
-Requires:   python%{pyver}-netaddr
+Requires:   python3-pbr >= 2.0.0
+Requires:   python3-jinja2 >= 2.8
+Requires:   python3-docker >= 2.4.2
+Requires:   python3-oslo-config >= 2:5.1.0
 
-# Handle python2 exception
-%if %{pyver} == 2
-Requires:   python-gitdb
-Requires:   GitPython
-%else
-Requires:   python%{pyver}-gitdb
-Requires:   python%{pyver}-GitPython
-%endif
+Requires:   python3-GitPython
 
 %description
 %{common_desc}
@@ -55,12 +33,12 @@ Requires:   python%{pyver}-GitPython
 %setup -q -n kolla-%{upstream_version}
 
 %build
-PYTHONPATH=. oslo-config-generator-%{pyver} --config-file=etc/oslo-config-generator/kolla-build.conf
+PYTHONPATH=. oslo-config-generator --config-file=etc/oslo-config-generator/kolla-build.conf
 
-%{pyver_build}
+%{py3_build}
 
 %install
-%{pyver_install}
+%{py3_install}
 
 mkdir -p %{buildroot}%{_datadir}/kolla/docker
 cp -vr docker/ %{buildroot}%{_datadir}/kolla
@@ -69,7 +47,7 @@ cp -vr docker/ %{buildroot}%{_datadir}/kolla
 install -p -D -m 644 setup.cfg %{buildroot}%{_datadir}/kolla/setup.cfg
 
 # remove tests
-rm -fr %{buildroot}%{pyver_sitelib}/kolla/tests
+rm -fr %{buildroot}%{python3_sitelib}/kolla/tests
 
 # remove tools
 rm -fr %{buildroot}%{_datadir}/kolla/tools
@@ -84,7 +62,7 @@ rm -fr %{buildroot}%{_datadir}/kolla/etc_examples
 %doc %{_datadir}/kolla/doc
 %license LICENSE
 %{_bindir}/kolla-build
-%{pyver_sitelib}/kolla*
+%{python3_sitelib}/kolla*
 %{_datadir}/kolla
 %{_sysconfdir}/kolla
 
