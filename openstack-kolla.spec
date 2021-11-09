@@ -85,3 +85,4 @@ rm -fr %{buildroot}%{_datadir}/kolla/etc_examples
 
 
 %changelog
+# REMOVEME: error caused by commit https://opendev.org/openstack/kolla/commit/c2874f18ebd092bd349c7f9888727287b352a035
