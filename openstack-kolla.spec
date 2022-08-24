@@ -123,4 +123,3 @@ rm -fr %{buildroot}%{_datadir}/kolla/etc_examples
 
 * Tue Oct 22 2019 RDO <dev@lists.rdoproject.org> 8.0.1-1.1.98fb7dcgit
 - Update to post 8.0.1 (98fb7dc8ff2136d658c9a79ed40f6e42e7893662)
-
