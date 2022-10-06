@@ -6,7 +6,7 @@
 Templates and tools from the Kolla project to build OpenStack container images.
 
 Name:       openstack-kolla
-Version:    14.5.0
+Version:    14.6.0
 Release:    1%{?dist}
 Summary:    Build OpenStack container images
 
@@ -88,6 +88,9 @@ rm -fr %{buildroot}%{_datadir}/kolla/etc_examples
 
 
 %changelog
+* Thu Oct 06 2022 RDO <dev@lists.rdoproject.org> 14.6.0-1
+- Update to 14.6.0
+
 * Fri Sep 09 2022 RDO <dev@lists.rdoproject.org> 14.5.0-1
 - Update to 14.5.0
 
