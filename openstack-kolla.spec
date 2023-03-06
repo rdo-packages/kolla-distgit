@@ -33,11 +33,11 @@ BuildRequires:  python3-oslo-config
 BuildRequires:  crudini
 
 Requires:   python3-pbr >= 2.0.0
-Requires:   python3-jinja2 >= 2.8
-Requires:   python3-docker >= 2.4.2
+Requires:   python3-jinja2 >= 3.0.1
+Requires:   python3-docker >= 3.0.0
 Requires:   python3-oslo-config >= 2:5.1.0
 
-Requires:   python3-GitPython
+Requires:   python3-GitPython >= 1.0.1
 
 %description
 %{common_desc}
