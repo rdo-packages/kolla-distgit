@@ -1,4 +1,4 @@
-%global milestone .0rc1
+%global milestone .0rc2
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
 %global sources_gpg_sign 0x815AFEC729392386480E076DCC0DFE2D21C023C9
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
@@ -8,15 +8,13 @@ Templates and tools from the Kolla project to build OpenStack container images.
 
 Name:       openstack-kolla
 Version:    16.0.0
-Release:    0.1%{?milestone}%{?dist}
+Release:    0.2%{?milestone}%{?dist}
 Summary:    Build OpenStack container images
 
 License:    ASL 2.0
 URL:        http://pypi.python.org/pypi/kolla
 Source0:    https://tarballs.openstack.org/kolla/kolla-%{upstream_version}.tar.gz
-#
-# patches_base=16.0.0.0rc1
-#
+# patches_base=16.0.0.0rc2
 
 # Required for tarball sources verification
 %if 0%{?sources_gpg} == 1
@@ -90,6 +88,9 @@ rm -fr %{buildroot}%{_datadir}/kolla/etc_examples
 
 
 %changelog
+* Thu Jun 01 2023 RDO <dev@lists.rdoproject.org> 16.0.0-0.2.0rc1
+- Update to 16.0.0.0rc2
+
 * Fri May 26 2023 RDO <dev@lists.rdoproject.org> 16.0.0-0.1.0rc1
 - Update to 16.0.0.0rc1
 
