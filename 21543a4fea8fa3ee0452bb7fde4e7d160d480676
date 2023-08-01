@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "230595d9_c9599d86",
+        "filename": "openstack-kolla.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2023-08-01T14:44:04Z",
+      "side": 1,
+      "message": "as we are not running tests, I think we can remove \"-t -e %{default_toxenv}\" and rely only on requirements.txt to avoid pulling test requirements",
+      "revId": "21543a4fea8fa3ee0452bb7fde4e7d160d480676",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
