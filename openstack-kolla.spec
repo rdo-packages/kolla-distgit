@@ -1,12 +1,12 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x815AFEC729392386480E076DCC0DFE2D21C023C9
+%global sources_gpg_sign 0x2ef3fe0ec2b075ab7458b5f8b702b20b13df2318
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 %global common_desc \
 Templates and tools from the Kolla project to build OpenStack container images.
 
 Name:       openstack-kolla
-Version:    16.1.0
+Version:    16.2.0
 Release:    1%{?dist}
 Summary:    Build OpenStack container images
 
@@ -87,6 +87,9 @@ rm -fr %{buildroot}%{_datadir}/kolla/etc_examples
 
 
 %changelog
+* Wed Nov 08 2023 RDO <dev@lists.rdoproject.org> 16.2.0-1
+- Update to 16.2.0
+
 * Thu Jul 13 2023 RDO <dev@lists.rdoproject.org> 16.1.0-1
 - Update to 16.1.0
 
