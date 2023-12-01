@@ -1,5 +1,6 @@
+%global milestone .0rc1
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
+%global sources_gpg_sign 0x2ef3fe0ec2b075ab7458b5f8b702b20b13df2318
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 # we are excluding some BRs from automatic generator
 %global excluded_brs doc8 bandit pre-commit hacking flake8-import-order sphinx openstackdocstheme bashate
@@ -8,13 +9,17 @@
 Templates and tools from the Kolla project to build OpenStack container images.
 
 Name:       openstack-kolla
-Version:    XXX
-Release:    XXX
+Version:    17.0.0
+Release:    0.1%{?milestone}%{?dist}
 Summary:    Build OpenStack container images
 
 License:    Apache-2.0
 URL:        http://pypi.python.org/pypi/kolla
 Source0:    https://tarballs.openstack.org/kolla/kolla-%{upstream_version}.tar.gz
+#
+# patches_base=17.0.0.0rc1
+#
+
 # Required for tarball sources verification
 %if 0%{?sources_gpg} == 1
 Source101:        https://tarballs.openstack.org/kolla/kolla-%{upstream_version}.tar.gz.asc
@@ -95,3 +100,6 @@ rm -fr %{buildroot}%{_datadir}/kolla/etc_examples
 
 
 %changelog
+* Fri Dec 01 2023 RDO <dev@lists.rdoproject.org> 17.0.0-0.1.0rc1
+- Update to 17.0.0.0rc1
+
