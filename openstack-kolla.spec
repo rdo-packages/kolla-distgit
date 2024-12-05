@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0xf8675126e2411e7748dd46662fc2093e4682645f
+%global sources_gpg_sign 0x22284f69d9eccdf3df7819791c711af193ff8e54
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 # we are excluding some BRs from automatic generator
 %global excluded_brs doc8 bandit pre-commit hacking flake8-import-order sphinx openstackdocstheme bashate
@@ -8,7 +8,7 @@
 Templates and tools from the Kolla project to build OpenStack container images.
 
 Name:       openstack-kolla
-Version:    17.5.0
+Version:    17.6.0
 Release:    1%{?dist}
 Summary:    Build OpenStack container images
 
@@ -96,6 +96,9 @@ rm -fr %{buildroot}%{_datadir}/kolla/etc_examples
 
 
 %changelog
+* Thu Dec 05 2024 RDO <dev@lists.rdoproject.org> 17.6.0-1
+- Update to 17.6.0
+
 * Thu Sep 12 2024 RDO <dev@lists.rdoproject.org> 17.5.0-1
 - Update to 17.5.0
 
